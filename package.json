@@ -6,6 +6,7 @@
   "author": "Dean Withers",
   "scripts": {
     "dev": "nodemon"
+    "start": "node index.js"
   },
   "dependencies": {
     "express": "^4.17.1",
