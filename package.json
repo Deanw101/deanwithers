@@ -5,7 +5,7 @@
   "repository": "https://github.com/Deanw101/deanwithers.git",
   "author": "Dean Withers",
   "scripts": {
-    "dev": "nodemon"
+    "dev": "nodemon",
     "start": "node index.js"
   },
   "dependencies": {
