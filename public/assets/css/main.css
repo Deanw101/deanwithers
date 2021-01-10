@@ -23,6 +23,8 @@
 =====================================================*/
 /* Google Font */
 /* poppins-100 - latin */
+
+/* =========== */
 @font-face {
   font-family: 'Poppins';
   font-style: normal;
@@ -887,6 +889,22 @@ a {
   top: 50vh;
 }
 
+.reviewbg-right {
+  background: #fff;
+  z-index: -1;
+  position: fixed;
+  transform: translate(-50%, -50%) skew(20deg);
+  -webkit-transform: translate(-50%, -50%) skew(20deg);
+  -moz-transform: translate(-50%, -50%) skew(20deg);
+  -ms-transform: translate(-50%, -50%) skew(20deg);
+  -o-transform: translate(-50%, -50%) skew(20deg);
+  text-align: center;
+  left: 50%;
+  height: 80vh;
+  width: 20vw;
+  top: 50vh;
+}
+
 .bg-3 {
   background: url("../img/home.jpg") center no-repeat;
   background-size: cover;
@@ -952,14 +970,88 @@ a {
   letter-spacing: 1px;
 }
 
+/* REVIEW */
+.review-text-front {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  text-align: center;
+  left: 50%;
+  width: 90%;
+  top: 50%;
+  z-index: 4;
+}
+
+.review-text-front h1 {
+  font-family: 'Poppins', sans-serif;
+  text-transform: uppercase;
+  color: transparent;
+  font-weight: 900;
+  font-size: 60px;
+  -webkit-text-stroke: 2px #000;
+  letter-spacing: 1px;
+  transform: translateY(-25vh);
+}
+.bgwhite {
+  background-color: white;
+}
+
+.cowhite {
+  color: black!important;
+}
+.review-text-back {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  text-align: center;
+  left: 50%;
+  width: 90%;
+  top: 50%;
+  z-index: -2;
+}
+
+.review-text-back h1 {
+  font-family: 'Poppins', sans-serif;
+  text-transform: uppercase;
+  color: #000;
+  font-weight: 900;
+  font-size: 60px;
+  -webkit-text-stroke: 0px #000;
+  letter-spacing: 1px;
+  transform: translateY(-25vh);
+}
+
+.bookingcards {
+  transform: translateY(75vh);
+}
 .main-head {
   position: relative;
   height: 100vh;
   overflow: hidden;
   z-index: -1;
+
 }
 
 .main-head .container {
+  position: relative;
+}
+
+.review-head {
+  position: relative;
+  height: 150vh;
+  overflow: hidden;
+  z-index: -3;
+  background-color:white!important;
+
+}
+
+.review-head .container {
   position: relative;
 }
 
@@ -1415,6 +1507,129 @@ h3.detail-title {
   position: absolute;
   left: calc(50% - 50px);
 }
+/* =================================================== */
+/* BOOKING PACKAGES */
+.bcontainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 40px 0;
+  z-index: 5;
+  box-sizing: border-box;
+
+}
+
+.bcontainer .bcard {
+position: relative;
+min-width: 320px;
+height: 440px;
+box-shadow: inset 5px 5px 5px rgba(0,0,0,0.2),
+            inset -5px -5px -15px rgba(255,255,255,0.1),
+            5px 5px 15px rgba(0,0,0,0.3),
+            -5px -5px -15px rgba(255,255,255,0.1);
+            border-radius: 15px;
+            margin: 30px;
+              z-index: 5;
+                box-sizing: border-box;
+}
+
+.bcontainer .bcard .bbox::before {
+  content: ' ';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  pointer-events: none;
+
+}
+
+.bcontainer .bcard .bbox:hover {
+transform: translateY(-50px);
+box-shadow: 0 40px 70px rgba(0, 0, 0, 0.5);
+}
+
+.bcontainer .bcard .bbox {
+position: absolute;
+top: 20px;
+left: 20px;
+right: 20px;
+bottom: 20px;
+background: black;
+border: 2px solid #1e1f23;
+border-radius: 15px;
+box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+transition: 0.5s;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+    overflow: hidden;
+}
+
+.bcontainer .bcard .bbox:hover {
+  transform: translateY(-50px);
+  box-shadow: 0 40px 70px rgba(0,0,0,0.5);
+}
+.bcontainer .bcard .bbox .bcontent {
+  z-index: 5;
+  padding: 20px;
+  text-align: center;
+  }
+
+.bcontent h2 {
+  font-weight: 800;
+  position: absolute;
+  top: -10px;
+  right: 30px;
+  font-size: 7em;
+  color: rgba(255,255,255,0.1);
+  font-family: 'Poppins', sans-serif;
+}
+
+.bcontent h3{
+      font-size: 1.8em;
+      color: rgba(255,255,255,0.7);
+      transistion: 0.5s
+      z-index: 1;
+      font-weight: 700;
+      text-transform: capitalize;
+      }
+
+  .bcontent p{
+        font-size: 16px;
+        color: rgba(255,255,255,0.5);
+        transistion: 0.5s
+        z-index: 1;
+        line-height: 1.6;
+        }
+
+        .bcontainer .bcard .bbox .bcontent a{
+          position: relative;
+          display: inline-block;
+          padding: 8px 20px;
+          background: #000;
+          margin-top: 15px;
+          border-radius: 20px;
+          text-decoration: none;
+          font-weight: 600;
+          color: #fff;
+          box-shadow: 0 10px 20px rgba(0,0,0.2);
+          letter-spacing: 0.3px;
+          }
+
+          .bcontainer .bcard:nth-child(1) .bbox .bcontent a{
+            background: rgba(255,255,255,0.05);
+            }
+
+            .bcontainer .bcard:nth-child(2) .bbox .bcontent a{
+              background: #e91e63
+              }
+
+
 
 /* ==================================================
 
@@ -1441,6 +1656,39 @@ h3.detail-title {
   height: 50vh;
   width: 30vw;
   top: 30vh;
+}
+
+.bg-book {
+  background: white;
+  z-index: 3;
+  position: fixed;
+  text-align: center;
+  left: 50%;
+  height: 30vh;
+  width: 40vw;
+  top: 20vh;
+}
+
+.bg-book-2 {
+  background: white;
+  z-index: 3;
+  position: fixed;
+  text-align: center;
+  left: 10vw;
+  height: 50vh;
+  width: 30vw;
+  top: 30vh;
+}
+
+.bg-book-3 {
+  background: white;
+  z-index: 3;
+  position: fixed;
+  text-align: center;
+  left: 70vw;
+  height: 25vh;
+  width: 30vw;
+  top: 55vh;
 }
 
 /* ==================================================

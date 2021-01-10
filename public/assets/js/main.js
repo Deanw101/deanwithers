@@ -455,7 +455,7 @@
     $('.toggle-btn').on("click", function () {
         t1.reversed(!t1.reversed()); //toggles the orientation
     })
-  
+
 
     //--------------------------------------------------
     // Magnetic
@@ -464,7 +464,7 @@
     $(document).on('mousemove', function (e) {
         $('.magnetic').each(function () {
             if (!isMobile) {
-                magnetic(this, e); //Init effect magnetic 
+                magnetic(this, e); //Init effect magnetic
             }
         });
     });
@@ -526,30 +526,28 @@
     workSlide.on('slideChange', function () {
         TweenMax.to('.text-1', 0.3, {
             y: '80',
-         
+
         })
         TweenMax.to('.text-2', 0.3, {
             y: '80',
-         
+
         })
 
-      
-        
+
+
     });
 
     workSlide.on('slideChangeTransitionEnd', function () {
         TweenMax.to('.text-1', 0.3, {
             y: '0',
-         
+
         })
         TweenMax.to('.text-2', 0.3, {
             y: '0',
-         
+
         })
-   
+
     });
-
-
 
     var toggler = $('.menu__toggler');
     var menu = $('.menus');
@@ -558,4 +556,15 @@
         menu.toggleClass('activez');
     });
 
+    TweenMax.from('.reviewbg-right', 1, {
+        x: 100,
+        ease: Power4.easeInOut,
+        delay: '.3',
+    })
+    var reviewmove = $('#reviewmove').get(0);
+    var parallaxInstance = new Parallax(reviewmove, {
+        relativeInput: true,
+        scalarX: 14,
+        hoverOnly: false,
+    });
 })(jQuery);
