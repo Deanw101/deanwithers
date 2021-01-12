@@ -1027,8 +1027,70 @@ a {
   transform: translateY(-25vh);
 }
 
+/* mobile review text */
+
+.review-text-front-mobile {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  text-align: center;
+  left: 50%;
+  width: 90%;
+  top: 480px;
+  z-index: 4;
+}
+
+.review-text-front-mobile h1 {
+  font-family: 'Poppins', sans-serif;
+  text-transform: uppercase;
+  color: transparent;
+  font-weight: 900;
+  font-size: 35px;
+  -webkit-text-stroke: 2px #000;
+  letter-spacing: 1px;
+  transform: translateY(-25vh);
+}
+.bgwhite {
+  background-color: white;
+}
+
+.cowhite {
+  color: black!important;
+}
+.review-text-back-mobile {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  text-align: center;
+  left: 50%;
+  width: 90%;
+  top: 480px;
+  z-index: -2;
+}
+
+.review-text-back-mobile h1 {
+  font-family: 'Poppins', sans-serif;
+  text-transform: uppercase;
+  color: #000;
+  font-weight: 900;
+  font-size: 35px;
+  -webkit-text-stroke: 0px #000;
+  letter-spacing: 1px;
+  transform: translateY(-25vh);
+}
+
 .bookingcards {
   transform: translateY(75vh);
+}
+
+.bookingcardsmobile {
+  transform: translateY(500px);
 }
 .main-head {
   position: relative;
@@ -1049,6 +1111,19 @@ a {
   z-index: -3;
   background-color:white!important;
 
+}
+
+.review-head-mobile {
+  position: relative;
+  height: 2800px;
+  overflow: hidden;
+  z-index: -3;
+  background-color:white!important;
+
+}
+
+.review-head-mobile .container {
+  position: relative;
 }
 
 .review-head .container {
