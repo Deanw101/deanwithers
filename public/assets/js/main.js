@@ -9,7 +9,32 @@
         RevealLoad();
         startAnim();
         $('.preloader').removeClass()
-    })
+        function handleSubmit(event) {
+          event.preventDefault();
+
+          const data = new FormData(event.target);
+
+          const name = data.get('name');
+          const date = data.get('datetime');
+
+          console.log({ name,date });
+
+          $.post("/bookings",
+              {
+                 name,
+                 date
+               }
+              ,
+        function(data, status){
+          console.log("Data: " + data + "\nStatus: " + status);
+        });
+
+        }
+
+        const form = document.getElementById('scheduleform');
+        form.addEventListener('submit', handleSubmit);
+
+      })
 
 
     //--------------------------------------------------
