@@ -1597,6 +1597,7 @@ h3.detail-title {
 }
 
 .bcontainer .bcard {
+top: 20%;
 position: relative;
 min-width: 320px;
 height: 440px;
@@ -1622,10 +1623,6 @@ box-shadow: inset 5px 5px 5px rgba(0,0,0,0.2),
 
 }
 
-.bcontainer .bcard .bbox:hover {
-transform: translateY(-50px);
-box-shadow: 0 40px 70px rgba(0, 0, 0, 0.5);
-}
 
 .bcontainer .bcard .bbox {
 position: absolute;
@@ -1637,7 +1634,7 @@ background: black;
 border: 2px solid #1e1f23;
 border-radius: 15px;
 box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-transition: 0.5s;
+/* transition: 0.5s; */
   z-index: 5;
   display: flex;
   justify-content: center;
@@ -1645,10 +1642,7 @@ transition: 0.5s;
     overflow: hidden;
 }
 
-.bcontainer .bcard .bbox:hover {
-  transform: translateY(-50px);
-  box-shadow: 0 40px 70px rgba(0,0,0,0.5);
-}
+
 .bcontainer .bcard .bbox .bcontent {
   z-index: 5;
   padding: 20px;
