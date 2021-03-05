@@ -531,8 +531,9 @@
     //--------------------------------------------------
 
     $(document).ready(function() {
+      
 
-		var id = '#dialog';
+		var id = '#pcont';
 
 		//Get the screen height and width
 		var maskHeight = $(document).height();
@@ -557,19 +558,20 @@
 		$(id).fadeIn(2000);
 
 	//if close button is clicked
-	$('.window .close').click(function (e) {
+	$('.pcontent .pclose').click(function (e) {
 		//Cancel the link behavior
 		e.preventDefault();
 
-		$('#mask').hide();
-		$('.window').hide();
+		$('#mask').fadeOut();
+		$('.pcontainer').fadeOut();
 	});
 
 	//if mask is clicked
 	$('#mask').click(function () {
-		$(this).hide();
-		$('.window').hide();
+		$(this).fadeOut();
+		$('.pcontainer').fadeOut();
 	});
+
 
 });
 
@@ -642,4 +644,8 @@
         scalarX: 14,
         hoverOnly: false,
     });
+
+
+
+
 })(jQuery);
