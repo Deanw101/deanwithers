@@ -273,8 +273,15 @@ font-family: 'Poppins', sans-serif;
 
 	color: red;
 }
-body.bookings {
-  background: linear-gradient(to bottom, black 75%, white 25%);
+
+
+.bookings::-webkit-scrollbar {
+    display: none;
+}
+
+
+.bookings {
+  background: linear-gradient(to bottom, black 75%, white 25%)!important;
 }
 /* POPUP */
 
@@ -1166,7 +1173,16 @@ a {
   overflow: auto;
   z-index: -3;
   background-color:white!important;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
 
+.review-head::-webkit-scrollbar {
+    display: none;
+}
+
+.md-review-head::-webkit-scrollbar {
+    display: none;
 }
 
 .md-review-head {
@@ -1175,6 +1191,8 @@ a {
   overflow: auto;
   z-index: -3;
   background-color:white!important;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 
 }
 
