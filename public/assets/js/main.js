@@ -165,13 +165,13 @@
 
         if (bodyScroll > 300) {
 
-            TweenMax.to('.scr', .5, {
+            TweenMax.to('.scr', .125, {
                 autoAlpha: 0,
                 y: '100',
 
             })
 
-            TweenMax.to('.scrolls', .5, {
+            TweenMax.to('.scrolls', .125, {
                 autoAlpha: 0,
                 y: '100',
 
@@ -179,13 +179,13 @@
 
 
         } else {
-            TweenMax.to('.scr', 1, {
+            TweenMax.to('.scr', .25, {
                 autoAlpha: 1,
                 y: '00',
 
             })
 
-            TweenMax.to('.scrolls', .5, {
+            TweenMax.to('.scrolls', .125, {
                 autoAlpha: 1,
                 y: '0',
 
@@ -196,13 +196,13 @@
 
 
     $('.img-folio').on('mouseenter', function () {
-        TweenMax.to(this, 0.4, {
+        TweenMax.to(this, 0.2, {
             y: '-30',
         })
     });
 
     $('.img-folio').on('mouseleave', function () {
-        TweenMax.to(this, 0.4, {
+        TweenMax.to(this, 0.2, {
             y: '1',
         })
     });
@@ -438,39 +438,39 @@
     var t1 = new TimelineMax({
         paused: true
     });
-    t1.to(".one", 0.8, {
+    t1.to(".one", 0.2, {
         y: 9,
         autoAlpha: 0,
         ease: Expo.easeInOut
     });
-    t1.to(".two", 0.8, {
+    t1.to(".two", 0.2, {
         ease: Expo.easeInOut,
         delay: -1
     });
-    t1.to(".tre", 0.8, {
+    t1.to(".tre", 0.2, {
         y: -9,
         autoAlpha: 0,
         ease: Expo.easeInOut,
         delay: -1
     });
-    t1.to(".over-all", 1, {
+    t1.to(".over-all", .25, {
         autoAlpha: 1,
         ease: Expo.easeOut,
     })
-    t1.to(".bg-nav", 1, {
+    t1.to(".bg-nav", .25, {
         autoAlpha: 1,
         ease: Power4.easeOut,
         delay: -1
     })
 
 
-    t1.to(".menu", 1, {
+    t1.to(".menu", .25, {
         autoAlpha: 1,
         ease: Expo.easeOut,
         delay: -1
     })
 
-    t1.staggerFrom(".menu ul li", 3, {
+    t1.staggerFrom(".menu ul li", 0.75, {
         y: 50,
         opacity: 0,
         ease: Power4.easeInOut,
