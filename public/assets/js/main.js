@@ -535,6 +535,8 @@
     $(document).ready(function() {
 
 
+
+
 		var id = '#pcont';
 
 		//Get the screen height and width
@@ -754,48 +756,49 @@
     // 	 return false;
     // })
 
-    $("#submitform").addEventListener('click', (e) => {
-      event.preventDefault();
-      event.stopPropagation();
-      console.log(event);
-      // get all the inputs into an array.
-      var $inputs = $('#psbook :input');
 
-      // not sure if you wanted this, but I thought I'd add it.
-      // get an associative array of just the values.
-      var values = {};
-      $inputs.each(function() {
-          values[this.name] = $(this).val();
-      });
-      let $selectFields = $('select');
-      console.log($selectFields);
-
-      for (var i = 0; i < $selectFields.length; i++) {
-        let field = $selectFields[i]
-        values[field.id] = field.value;
-      }
-
-      const $eventLog = document.querySelector('.event-log');
-      const $eventLogb = document.querySelector('.event-logb');
-     if ($eventLog.innerHTML != '') {
-       values.eventDateTime = $eventLog.innerHTML
-     } else if ($eventLogb != '') {
-       values.photoDateTime = $eventLogb.innerHTML
-     } else {
-       values.DateTime = "N/A"
-     }
-      console.log(values);
-      // Post req
-      $.post("/api/schedulerequest", values, function(data,status){
-        console.log(data, status);
-      });
-
-    });
 
     $(".inb").click(function() {
   $("inb").addClass('inba');
 });
 
+$('#submitForm').on('click', (e) => {
+  event.preventDefault();
+  event.stopPropagation();
+  console.log(event);
+  // get all the inputs into an array.
+  var $inputs = $('#psbook :input');
+
+  // not sure if you wanted this, but I thought I'd add it.
+  // get an associative array of just the values.
+  var values = {};
+  $inputs.each(function() {
+      values[this.name] = $(this).val();
+  });
+  let $selectFields = $('select');
+  console.log($selectFields);
+
+  for (var i = 0; i < $selectFields.length; i++) {
+    let field = $selectFields[i]
+    values[field.id] = field.value;
+  }
+
+  const $eventLog = document.querySelector('.event-log');
+  const $eventLogb = document.querySelector('.event-logb');
+ if ($eventLog.innerHTML != '') {
+   values.eventDateTime = $eventLog.innerHTML
+ } else if ($eventLogb != '') {
+   values.photoDateTime = $eventLogb.innerHTML
+ } else {
+   values.DateTime = "N/A"
+ }
+  console.log(values);
+  // Post req
+  $.post("/api/schedulerequest", values, function(data,status){
+    console.log(data, status);
+  });
+
+});
 
 
 
