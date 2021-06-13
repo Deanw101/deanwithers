@@ -649,11 +649,14 @@
         delay: '.3',
     })
     var reviewmove = $('#reviewmove').get(0);
-    var parallaxInstance = new Parallax(reviewmove, {
-        relativeInput: true,
-        scalarX: 14,
-        hoverOnly: false,
-    });
+     if (window.location.pathname.includes("booking")) {
+       var parallaxInstance = new Parallax(reviewmove, {
+           relativeInput: true,
+           scalarX: 14,
+           hoverOnly: false,
+       });
+     }
+
 
 
 //
@@ -671,10 +674,10 @@
 
       next_fs = $(this).parent().next();
 
-      console.log(this.id);
+      // console.log(this.id);
       if (this.id == "evtn") {
         let noButton = $('input[name=toggle]:checked', '#psbook').val();
-        console.log(noButton);
+        // console.log(noButton);
         if (noButton == "no") {
           next_fs = $(this).parent().next().next().next();
         }
@@ -804,41 +807,44 @@ $('#submitForm').on('click', (e) => {
 
 })(jQuery);
 
-let simplepickerb = new SimplePicker({
-  zIndex: 10
-});
+
+if (window.location.pathname.includes("booking")) {
+    let simplepickerb = new SimplePicker({
+      zIndex: 10
+    });
 
 
 
-const $buttonb = document.querySelector('#pickerb');
-const $eventLogb = document.querySelector('.event-logb');
-$buttonb.addEventListener('click', (e) => {
-  e.stopPropagation();
-  e.preventDefault();
-  simplepickerb.open();
-});
+    const $buttonb = document.querySelector('#pickerb');
+    const $eventLogb = document.querySelector('.event-logb');
+    $buttonb.addEventListener('click', (e) => {
+      e.stopPropagation();
+      e.preventDefault();
+      simplepickerb.open();
+    });
 
-// $eventLog.innerHTML += '\n\n';
-simplepickerb.on('submit', (date, readableDate) => {
-  $eventLogb.innerHTML = readableDate;
-});
-
-
-let simplepicker = new SimplePicker({
-  zIndex: 10
-});
+    // $eventLog.innerHTML += '\n\n';
+    simplepickerb.on('submit', (date, readableDate) => {
+      $eventLogb.innerHTML = readableDate;
+    });
 
 
+    let simplepicker = new SimplePicker({
+      zIndex: 10
+    });
 
-const $button = document.querySelector('#pickera');
-const $eventLog = document.querySelector('.event-log');
-$button.addEventListener('click', (e) => {
-  // e.stopPropagation();
-  e.preventDefault();
-  simplepicker.open();
-});
 
-// $eventLog.innerHTML += '\n\n';
-simplepicker.on('submit', (date, readableDate) => {
-  $eventLog.innerHTML = readableDate + '\n';
-});
+
+    const $button = document.querySelector('#pickera');
+    const $eventLog = document.querySelector('.event-log');
+    $button.addEventListener('click', (e) => {
+      // e.stopPropagation();
+      e.preventDefault();
+      simplepicker.open();
+    });
+
+    // $eventLog.innerHTML += '\n\n';
+    simplepicker.on('submit', (date, readableDate) => {
+      $eventLog.innerHTML = readableDate + '\n';
+    });
+}
