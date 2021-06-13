@@ -9,6 +9,9 @@
 	<link href="assets/css/plugin.css" rel="stylesheet" />
 	<link href="assets/css/main.css" rel="stylesheet" />
 	<link href="assets/css/responsive.css" rel="stylesheet" />
+	<link href="assets/css/main.scss" rel="stylesheet" />
+	<link href="assets/js/dtpicker.js" rel="stylesheet" />
+	<link href="assets/js/dropdown.js" rel="stylesheet" />
 </head>
 <body class="bookings"><!-- Start Preload -->
 	<div class="preloader"></div>
@@ -115,7 +118,7 @@
 							</div>
 <!-- reviews -->
 
-								<div class="review-head d-none d-xl-block">
+								<div class="review-head">
                   <div id="reviewmove">
                   <div data-depth="0.2">
                   <div class="bg-book">
@@ -133,6 +136,26 @@
 									</div>
                   </div>
 
+									<div data-depth="0.4">
+                  <div class="bg-book-4">
+									</div>
+                  </div>
+
+									<div data-depth="0.4">
+                  <div class="bg-book-5">
+									</div>
+                  </div>
+
+									<div data-depth="0.4">
+                  <div class="bg-book-6">
+									</div>
+                  </div>
+
+									<div data-depth="0.4">
+                  <div class="bg-book-7">
+									</div>
+                  </div>
+
                   </div>
 
 									<!-- <div class="heading-text">
@@ -147,43 +170,274 @@
 												</div>
 											</div>
  -->
+<div class="buildhd">
+	<h1 class="buildh">BUILD YOUR SHOOT</h1>
+	<br>
+	<p class="buildhp">Use our state of the art booking application to precisely design your photoshoot.</p>
+</div>
 
 											<div class="cuspack">
-												<h1 style="opacity:1; color: white; z-index:99; font-family: 'Poppins', sans-serif;">BUILD YOUR PHOTOSHOOT</h1>
+
 											    <div class="col-md-6 col-md-offset-3">
 											        <form id="psbook">
 											            <!-- progressbar -->
 											            <ul id="progressbar">
 											                <li class="active">Personal Details</li>
-											                <li>Social Profiles</li>
-											                <li>Account Setup</li>
+											                <li>Building</li>
+											                <li>Booked</li>
 											            </ul>
 											            <!-- fieldsets -->
 											            <fieldset>
 											                <h2 class="fs-title">Personal Details</h2>
-											                <h3 class="fs-subtitle">Tell us something more about you</h3>
+											                <h3 class="fs-subtitle">Tell us about you</h3>
 											                <input type="text" name="fname" placeholder="First Name"/>
 											                <input type="text" name="lname" placeholder="Last Name"/>
-											                <input type="text" name="phone" placeholder="Phone"/>
-											                <input type="button" name="next" class="next action-button" value="Next"/>
-											            </fieldset>
-											            <fieldset>
-											                <h2 class="fs-title">Social Profiles</h2>
-											                <h3 class="fs-subtitle">Your presence on the social network</h3>
-											                <input type="text" name="twitter" placeholder="Twitter"/>
-											                <input type="text" name="facebook" placeholder="Facebook"/>
-											                <input type="text" name="gplus" placeholder="Google Plus"/>
-											                <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
-											                <input type="button" name="next" class="next action-button" value="Next"/>
-											            </fieldset>
-											            <fieldset>
-											                <h2 class="fs-title">Create your account</h2>
-											                <h3 class="fs-subtitle">Fill in your credentials</h3>
 											                <input type="text" name="email" placeholder="Email"/>
-											                <input type="password" name="pass" placeholder="Password"/>
-											                <input type="password" name="cpass" placeholder="Confirm Password"/>
+											                <input type="button" name="next" class="next action-button" value="Next"/>
+											            </fieldset>
+											            <fieldset>
+											                <h2 class="fs-title">Event Shoots</h2>
+											                <h3 class="fs-subtitle">Is this for an event? Event shoots are packaged based on the affair.</h3>
+
+																			<input id="yes" name="toggle" value="yes" type="radio">
+																			<label class="togglebs" for="yes">Yes</label>
+																			<input id="no" name="toggle" value="no" type="radio">
+																			<label class="togglebs" for="no">No</label>
+																			<br>
+
 											                <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
-											                <input type="submit" name="submit" class="submit action-button" value="Submit"/>
+											                <input type="button" name="next" id="evtn" class="next action-button" value="Next"/>
+											            </fieldset>
+																	<fieldset>
+																		 <h2 class="fs-title">Event Shoots</h2>
+																		 <h3 class="fs-subtitle">What type of event?</h3>
+
+																		 <input id="wedding" name="events" type="radio">
+																		 <label class="labelbk" for="wedding">Wedding</label>
+																		 <input id="CorpEv" name="events" type="radio">
+																		 <label class="labelbk" for="CorpEv">Corporate</label>
+																		 <input id="3" name="events" type="radio">
+																		 <label class="labelbk" for="3">Awards<br></label>
+																		 <input id="4" name="events" type="radio">
+																		 <label class="labelbk" for="4">Press</label>
+																		 <input id="5" name="events" type="radio">
+																		 <label class="labelbk" for="5">Party</label>
+																		 <input id="6" name="events" type="radio">
+																		 <label class="labelbk" for="6">Showing</label>
+																		 <input id="7" name="events" type="radio">
+																		 <label class="labelbk" for="7">Concert</label>
+																		 <input id="8" name="events" type="radio">
+																		 <label class="labelbk" for="8">Dance</label>
+																		 <input id="9" name="events" type="radio">
+																		 <label class="labelbk" for="9">Other</label>
+
+																		 <br>
+																		 <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+																		 <input type="button" name="next" class="next action-button" value="Next"/>
+																 </fieldset>
+																 <fieldset>
+																		 <h2 class="fs-title">Time to Design</h2>
+																		 <h3 class="fs-subtitle">Give us some more information about your event.</h3>
+
+																		 <div class="row">
+																		 <div class="sdt">
+																		 <button class="openpicker" id="pickera">Select Date & Time</button>
+																		 <br>
+
+																			Date & Time
+																		<div class="event-log"></div>
+																		</div>
+
+
+
+																		<script src="assets/js/dtpicker.js"></script>
+																		<script>
+																		let simplepicker = new SimplePicker({
+																			zIndex: 10
+																		});
+
+
+
+																		const $button = document.querySelector('#pickera');
+																		const $eventLog = document.querySelector('.event-log');
+																		$button.addEventListener('click', (e) => {
+																			// e.stopPropagation();
+																			e.preventDefault();
+																			simplepicker.open();
+																		});
+
+																		// $eventLog.innerHTML += '\n\n';
+																		simplepicker.on('submit', (date, readableDate) => {
+																			$eventLog.innerHTML = readableDate + '\n';
+																		});
+
+
+																	</script>
+
+
+
+																	<div class="selectt">
+																		<p class="hoursh" style="font-size:16px; color: #000; margin bottom: 30px; padding-top:10px;">How long is your event?</p>
+																		<p class="hoursh">Hours</p>
+																		<select id="eventhrs">
+																			<option value="1hr">1</option>
+																			<option value="2hr">2</option>
+																			<option value="3hr">3</option>
+																			<option value="4hr">4</option>
+																			<option value="5hr">5</option>
+																			<option value="6hr">6</option>
+																			<option value="6hr">7</option>
+																		</select>
+																		<br><br>
+																		<p class="minsh">Minutes</p>
+																		<select id="eventmins">
+																			<option value="0min">0</option>
+																			<option value="15min">15</option>
+																			<option value="30min">30</option>
+																			<option value="45min">45</option>
+																		</select>
+																	</div>
+
+
+
+
+																	</div>
+
+																	<input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+																 <input type="button" name="next" class="next action-button" value="Next"/>
+
+
+																 </fieldset>
+
+																 <fieldset>
+																		 <h2 class="fs-title">Time to Design</h2>
+																		 <h3 class="fs-subtitle">Give us some more information about your shoot.</h3>
+
+																		 <div class="row" style="margin-top:30px;">
+																		 <div class="sdt">
+																		 <button class="openpicker" id="pickerb">Select Date & Time</button>
+																		 <br>
+
+																			Date & Time
+																		<div class="event-logb"></div>
+																		</div>
+
+
+
+																		<script src="assets/js/dtpicker.js"></script>
+																		<!-- <script>
+																		let simplepickerb = new SimplePicker({
+																			zIndex: 10
+																		});
+
+
+
+																		const $buttonb = document.querySelector('#pickerb');
+																		const $eventLogb = document.querySelector('.event-logb');
+																		$buttonb.addEventListener('click', (e) => {
+																			e.stopPropagation();
+																			e.preventDefault();
+																			simplepickerb.open();
+																		});
+
+																		// $eventLog.innerHTML += '\n\n';
+																		simplepickerb.on('submit', (date, readableDate) => {
+																			$eventLogb.innerHTML = readableDate;
+																		});
+
+
+																	</script> -->
+
+
+
+																	<div class="selectt">
+																		<p class="hoursh" style="font-size:16px; color: #000; margin bottom: 30px; padding-top:10px;">Length of Shoot</p>
+																		<p class="hoursh">Hours</p>
+																		<select id="shoothrs">
+																			<option value="1hr">0</option>
+																			<option value="2hr">1</option>
+																			<option value="3hr">2</option>
+																		</select>
+																		<br><br>
+																		<p class="minsh">Minutes</p>
+																		<select id="shootmins">
+																			<option value="0min">0</option>
+																			<option value="15min">15</option>
+																			<option value="30min">30</option>
+																			<option value="45min">45</option>
+																		</select>
+																	</div>
+																	</div>
+
+																	<div class="row">
+																		<p class="hoursh" style="font-size:16px; color: #000; margin bottom: 30px; padding-top:10px; padding-left:30px; font-weight: 700; text-align: center; width:100%;">General Shoot Configuration</p>
+																		<br><br>
+																		<div class="selectt">
+																			<p class="hoursh tal">Digital Retouching</p>
+																			<select id="digiret" class="selop">
+																				<option value="none">None</option>
+																				<option value="basic">Basic</option>
+																				<option value="advanced">Advanced</option>
+																			</select>
+
+																		</div>
+<div class="selectt">
+																		<p class="hoursh tal">People</p>
+																		<select id="ppl" class="selop">
+																			<option value="1p">1</option>
+																			<option value="2p">2</option>
+																			<option value="3p">3</option>
+																			<option value="3p">4</option>
+																			<option value="3p">5</option>
+																			<option value="3p">6+</option>
+																		</select>
+																		</div>
+<div class="selectt">
+																		<p class="hoursh tal">Digital Photos</p>
+																		<select id="digiph" class="selop">
+																			<option value="1hr">1</option>
+																			<option value="1hr">2</option>
+																			<option value="1hr">3</option>
+																			<option value="2hr">5</option>
+																			<option value="3hr">10</option>
+																			<option value="3hr">15</option>
+																			<option value="3hr">20</option>
+																			<option value="3hr">30</option>
+																		</select>
+																	</div>
+																	</div>
+																	<br><br>
+
+																	<input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+																 <input type="button" name="next" class="next action-button" value="Next"/>
+
+
+																 </fieldset>
+
+																 <fieldset>
+
+
+
+
+
+																	 <input id="autocomplete" type="text" placeholder="gay" name="StreetAddi" value="">
+																	 <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+ 																 <input type="button" name="next" class="next action-button" value="Next"/>
+
+
+																 </fieldset>
+																	<!-- <fieldset>
+											                <h2 class="fs-title">Payment</h2>
+											                <h3 class="fs-subtitle">Fill in your credentials</h3>
+																			<input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+																		 <input type="button" name="next" class="next action-button" value="Next"/>
+											            </fieldset> -->
+																	<fieldset>
+											                <h2 class="fs-title">Booked</h2>
+											                <h3 class="fs-subtitle">You're booked!</h3>
+
+											                <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+											                <input type="submit" name="submit" id="submitform" class="submit action-button" value="Submit"/>
 											            </fieldset>
 											        </form>
 											    </div>

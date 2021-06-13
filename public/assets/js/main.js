@@ -32,9 +32,9 @@
         });
 
         }
-
-        const form = document.getElementById('scheduleform');
-        form.addEventListener('submit', handleSubmit);
+        //
+        // const form = document.getElementById('scheduleform');
+        // form.addEventListener('submit', handleSubmit);
 
       })
 
@@ -574,6 +574,12 @@
 		$('.pcontainer').fadeOut();
 	});
 
+//
+// -------------------
+// DATETIME datepicker
+// --------------------
+
+
 
 });
 
@@ -661,8 +667,22 @@
     	if(animating) return false;
     	animating = true;
 
+      next_fs = $(this).parent().next();
+
+      console.log(this.id);
+      if (this.id == "evtn") {
+        let noButton = $('input[name=toggle]:checked', '#psbook').val();
+        console.log(noButton);
+        if (noButton == "no") {
+          next_fs = $(this).parent().next().next().next();
+        }
+      }
+
+
+
+
     	current_fs = $(this).parent();
-    	next_fs = $(this).parent().next();
+
 
     	//activate next step on progressbar using the index of next_fs
     	$("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
@@ -730,9 +750,92 @@
     	});
     });
 
-    $(".submit").click(function(){
-    	return false;
-    })
+    // $(".submit").click(function(){
+    // 	 return false;
+    // })
+
+    $("#submitform").addEventListener('click', (e) => {
+      event.preventDefault();
+      event.stopPropagation();
+      console.log(event);
+      // get all the inputs into an array.
+      var $inputs = $('#psbook :input');
+
+      // not sure if you wanted this, but I thought I'd add it.
+      // get an associative array of just the values.
+      var values = {};
+      $inputs.each(function() {
+          values[this.name] = $(this).val();
+      });
+      let $selectFields = $('select');
+      console.log($selectFields);
+
+      for (var i = 0; i < $selectFields.length; i++) {
+        let field = $selectFields[i]
+        values[field.id] = field.value;
+      }
+
+      const $eventLog = document.querySelector('.event-log');
+      const $eventLogb = document.querySelector('.event-logb');
+     if ($eventLog.innerHTML != '') {
+       values.eventDateTime = $eventLog.innerHTML
+     } else if ($eventLogb != '') {
+       values.photoDateTime = $eventLogb.innerHTML
+     } else {
+       values.DateTime = "N/A"
+     }
+      console.log(values);
+      // Post req
+      $.post("/api/schedulerequest", values, function(data,status){
+        console.log(data, status);
+      });
+
+    });
+
+    $(".inb").click(function() {
+  $("inb").addClass('inba');
+});
+
+
 
 
 })(jQuery);
+
+let simplepickerb = new SimplePicker({
+  zIndex: 10
+});
+
+
+
+const $buttonb = document.querySelector('#pickerb');
+const $eventLogb = document.querySelector('.event-logb');
+$buttonb.addEventListener('click', (e) => {
+  e.stopPropagation();
+  e.preventDefault();
+  simplepickerb.open();
+});
+
+// $eventLog.innerHTML += '\n\n';
+simplepickerb.on('submit', (date, readableDate) => {
+  $eventLogb.innerHTML = readableDate;
+});
+
+
+let simplepicker = new SimplePicker({
+  zIndex: 10
+});
+
+
+
+const $button = document.querySelector('#pickera');
+const $eventLog = document.querySelector('.event-log');
+$button.addEventListener('click', (e) => {
+  // e.stopPropagation();
+  e.preventDefault();
+  simplepicker.open();
+});
+
+// $eventLog.innerHTML += '\n\n';
+simplepicker.on('submit', (date, readableDate) => {
+  $eventLog.innerHTML = readableDate + '\n';
+});
