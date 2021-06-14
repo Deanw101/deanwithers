@@ -680,9 +680,16 @@
         // console.log(noButton);
         if (noButton == "no") {
           next_fs = $(this).parent().next().next().next();
+          $("#eventloc").attr('id', 'loc');
+        } else {
+          // $(this).parent().next().next().next().next().attr('id', 'eventloc');
+          $("#loc").attr('id', 'eventloc');
         }
       }
 
+      if (this.id == "event") {
+        next_fs = $(this).parent().next().next();
+      }
 
 
 
@@ -726,6 +733,15 @@
 
     	current_fs = $(this).parent();
     	previous_fs = $(this).parent().prev();
+
+      if (this.id == "noevent") {
+        previous_fs = $(this).parent().prev().prev().prev();
+      }
+
+      if (this.id == "eventloc") {
+        previous_fs = $(this).parent().prev().prev();
+
+      }
 
     	//de-activate current step on progressbar
     	$("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");

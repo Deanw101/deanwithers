@@ -39,7 +39,7 @@ const transporter = nodemailer.createTransport({
 app.use(compression());
 app.use('/api/*', apiLimiter); // activate limiter for api calls only
 app.use(morgan('tiny')); // server logger
-app.use(helmet()); // header security
+// app.use(helmet()); // header security
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json({ limit: '1000kb' }));
 
