@@ -2689,6 +2689,8 @@ border: 0;
   float: left;
 }
 
+button:focus {outline:0;}
+
 /*
     .select {
       display:flex;

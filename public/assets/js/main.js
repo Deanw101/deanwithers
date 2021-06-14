@@ -697,7 +697,11 @@
 
 
     	//activate next step on progressbar using the index of next_fs
-    	$("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+      if ($(this).parent().attr('id') == "progressMove") {
+         $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+      } else if ($(this).parent().attr('id') == "progressMoveTwo") {
+        $("#progressbar li").eq(2).addClass("active");
+      }
 
     	//show the next fieldset
     	next_fs.show();
