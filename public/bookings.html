@@ -411,32 +411,102 @@
 
 																 </fieldset>
 
-																 <fieldset id="">
+																 <fieldset id="locationfs">
 																	 <h2 class="fs-title">We've got the when, now for the where.</h2>
 																	 <h3 class="fs-subtitle">Please enter the location for your shoot.</h3>
 
 
 
+																	 <div class="row">
 
 
-																	 <input id="autocomplete" type="text" placeholder="gay" name="StreetAddi" value="">
+
+																	 <input id="street_number" type="text" placeholder="Street Number" name="StreetAddi" value="">
+																	 <input style="width:50%" id="city" type="text" placeholder="City" name="StreetAddi" value="">
+																	 <input style="width:50%" id="state" type="text" placeholder="State" name="StreetAddi" value="">
+																	 <input id="postal_code" type="text" placeholder="Zip Code" name="StreetAddi" value="">
+																	 </div>
 																	 <input id="loc" type="button" name="previous" class="previous action-button-previous" value="Previous"/>
- 																 <input type="button" name="next" class="next action-button" value="Next"/>
+ 																 <input type="button" name="next" id="locnext" class="next action-button" value="Next"/>
 
 
+															 </fieldset>
+																 <fieldset id="progressMoveTwo">
+																		 <h2 class="fs-title">Billing</h2>
+																		 <h3 class="fs-subtitle">Please be prepared to pay in full before your shoot.</h3>
+																		 <div class="row">
+																		 <div class="receipt">
+																			 <dl class="receipt__list">
+																				 <div class="receipt__list-row">
+																					 <dt class="receipt__item">Photoshoot Lengh</dt>
+																					 <dd class="receipt__cost">$99.99</dd>
+																				 </div>
+																					 <div class="receipt__list-row">
+																						 <dt class="receipt__item">Digital Retouching</dt>
+																						 <dd class="receipt__cost">$99.99</dd>
+																					 </div>
+																					 <div class="receipt__list-row">
+																						 <dt class="receipt__item"># of Digital Photos</dt>
+																						 <dd class="receipt__cost">$99.99</dd>
+																					 </div>
+																					 <div class="receipt__list-row">
+																						 <dt class="receipt__item"># of People</dt>
+																						 <dd class="receipt__cost">$99.99</dd>
+																					 </div>
+																					 <div class="receipt__list-row">
+																						 <dt class="receipt__item">Travel Fee</dt>
+																						 <dd class="receipt__cost">$99.99</dd>
+																					 </div>
+																					 <div class="receipt__list-row receipt__list-row--total">
+																						 <dt class="receipt__item">Total</dt>
+																						 <dd class="receipt__cost">$99.99</dd>
+																					 </div>
+																			 		</dl>
+																				</div>
+																			</div>
+
+																		 <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+																		<input type="button" name="next"  id="billing" class="next action-button" value="Next"/>
 																 </fieldset>
-																	<fieldset id="progressMoveTwo">
-											                <h2 class="fs-title">Billing</h2>
-											                <h3 class="fs-subtitle">Please be prepared to pay in full before your shoot.</h3>
-																			<input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
-																		 <input type="button" name="next" class="next action-button" value="Next"/>
-											            </fieldset>
+																 <fieldset id="progressMoveTwo">
+																		<h2 class="fs-title">Billing</h2>
+																		<h3 class="fs-subtitle">Please be prepared to pay in full before your shoot.</h3>
+																		<div class="row">
+																		<div class="receipt">
+																			<dl class="receipt__list">
+																				<div class="receipt__list-row">
+																					<dt class="receipt__item">Event Fee</dt>
+																					<dd class="receipt__cost">$99.99</dd>
+																				</div>
+																					<div class="receipt__list-row">
+																						<dt class="receipt__item">Event Length</dt>
+																						<dd class="receipt__cost">$99.99</dd>
+																					</div>
+																					<div class="receipt__list-row">
+																						<dt class="receipt__item">Travel Fee</dt>
+																						<dd class="receipt__cost">$99.99</dd>
+																					</div>
+																					<div class="receipt__list-row receipt__list-row--total">
+																						<dt class="receipt__item">Total</dt>
+																						<dd class="receipt__cost">$99.99</dd>
+																					</div>
+																				 </dl>
+																			 </div>
+																		 </div>
+
+																		<input type="button" id="ebilling" name="previous" class="previous action-button-previous" value="Previous"/>
+																	 <input type="button" name="next" class="next action-button" value="Next"/>
+																</fieldset>
 																	<fieldset>
 											                <h2 class="fs-title">Booked</h2>
-											                <h3 class="fs-subtitle">You're booked!</h3>
 
-											                <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
-											                <button style="font-size:13px;" id="submitForm" class="submit action-button" value="Submit">lmao </button>
+																			<div class="row" id="bookeddiv">
+																				<h2 class="bookedh">You're all set!</h2>
+																				<p class="bookedhp">Upon submission, please check your inbox for a confirmation email.</p>
+																			</div>
+
+											                <input type="button" name="previous" id="bookedprev" class="previous action-button-previous" value="Previous"/>
+											                <button style="font-size:13px;" id="submitForm" class="submit action-button" value="Submit">Submit </button>
 											            </fieldset>
 											        </form>
 											    </div>

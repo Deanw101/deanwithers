@@ -681,14 +681,26 @@
         if (noButton == "no") {
           next_fs = $(this).parent().next().next().next();
           $("#eventloc").attr('id', 'loc');
+
         } else {
           // $(this).parent().next().next().next().next().attr('id', 'eventloc');
           $("#loc").attr('id', 'eventloc');
+          $("#locationfs").attr('id', 'eventlocationfs');
         }
       }
 
       if (this.id == "event") {
         next_fs = $(this).parent().next().next();
+      }
+
+      if (this.id == "billing") {
+        next_fs = $(this).parent().next().next();
+      }
+
+      if (this.id == "locnext") {
+        if ($(this).parent().attr('id') == "eventlocationfs"){
+          next_fs = $(this).parent().next().next();
+        }
       }
 
 
@@ -742,14 +754,27 @@
         previous_fs = $(this).parent().prev().prev().prev();
       }
 
+      if (this.id == "ebilling") {
+        previous_fs = $(this).parent().prev().prev();
+      }
+
       if (this.id == "eventloc") {
         previous_fs = $(this).parent().prev().prev();
 
       }
 
-    	//de-activate current step on progressbar
-    	$("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+      if (this.id == "bookedprev") {
+        if ($(this).parent().prev().prev().prev().attr('id') == 'locationfs'){
+          previous_fs = $(this).parent().prev().prev();
+        }
+      }
 
+    	//de-activate current step on progressbar
+      if ($(this).parent().attr('id') == "progressMove") {
+         $("#progressbar li").eq(1).removeClass("active");
+      } else if ($(this).parent().attr('id') == "progressMoveTwo") {
+        $("#progressbar li").eq(2).removeClass("active");
+      }
     	//show the previous fieldset
     	previous_fs.show();
     	//hide the current fieldset with style
