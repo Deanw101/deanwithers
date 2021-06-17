@@ -697,6 +697,8 @@
         next_fs = $(this).parent().next().next();
       }
 
+
+
       if (this.id == "locnext") {
         if ($(this).parent().attr('id') == "eventlocationfs"){
           next_fs = $(this).parent().next().next();
@@ -758,6 +760,11 @@
         previous_fs = $(this).parent().prev().prev();
       }
 
+      if (this.id == "submitForm") {
+        previous_fs = $(this).parent().prev().prev().prev().prev().prev().prev().prev().prev();
+      }
+
+
       if (this.id == "eventloc") {
         previous_fs = $(this).parent().prev().prev();
 
@@ -814,6 +821,61 @@ $('#submitForm').on('click', (e) => {
   event.preventDefault();
   event.stopPropagation();
   console.log(event);
+  const values = getFormDetails();
+  // Post req
+  $.post("/api/schedulerequest", values, function(data,status){
+    console.log(data, status);
+    // Clear vals &  reset form
+    $('#psbook')[0].reset();
+    $('.event-logb').contents().remove();
+    $('.event-log').contents().remove();
+  });
+});
+
+$("#locnext").click(function() {
+  const values = getFormDetails();
+  if (values.photoDateTime != undefined) {
+    const photoshootLengh = values.shoothrs*200 + values.shootmins*50;
+    const retouchPrice = photoshootRetouchType[values.digiret];
+    const photosPrice = values.digiph*10;
+    const peoplePrice = values.ppl*20;
+    const photoshootTotal = photoshootLengh + retouchPrice + photosPrice + peoplePrice + 85;
+    console.log(photoshootLengh);
+    console.log(retouchPrice);
+    console.log(photosPrice);
+    console.log(peoplePrice);
+    console.log(photoshootTotal);
+    $("#photoshootLenghhtml").text('$' + photoshootLengh + '.00');
+    $("#retouchPricehtml").text('$' + retouchPrice + '.00');
+    $("#photosPricehtml").text('$' + photosPrice + '.00');
+    $("#peoplePricehtml").text('$' + peoplePrice + '.00');
+    $("#photoshootTotalhtml").text('$' + photoshootTotal + '.00');
+  }
+   if (values.eventDateTime != undefined) {
+    const eventLength = values.eventhrs*100 + values.eventmins*25;
+    const eventTotal = eventLength + 185;
+    $("#eventLengthhtml").text('$' + eventLength + '.00');
+    $("#eventTotalhtml").text('$' + eventTotal + '.00');
+  }
+});
+
+$("#photoshootEdit").click(function() {
+  $('.event-log').contents().remove();
+});
+
+$("#event").click(function() {
+  $('.event-logb').contents().remove();
+});
+
+})(jQuery);
+
+const photoshootRetouchType = {
+  None: 0,
+  Basic: 25,
+  Advanced: 50,
+}
+
+function getFormDetails() {
   // get all the inputs into an array.
   var $inputs = $('#psbook :input');
 
@@ -833,6 +895,9 @@ $('#submitForm').on('click', (e) => {
 
   const $eventLog = document.querySelector('.event-log');
   const $eventLogb = document.querySelector('.event-logb');
+
+  console.log($eventLog);
+  console.log($eventLogb);
  if ($eventLog.innerHTML != '') {
    values.eventDateTime = $eventLog.innerHTML
  } else if ($eventLogb != '') {
@@ -841,16 +906,10 @@ $('#submitForm').on('click', (e) => {
    values.DateTime = "N/A"
  }
   console.log(values);
-  // Post req
-  $.post("/api/schedulerequest", values, function(data,status){
-    console.log(data, status);
-  });
-
-});
+  return values;
+}
 
 
-
-})(jQuery);
 
 
 if (window.location.pathname.includes("booking")) {
@@ -871,6 +930,7 @@ if (window.location.pathname.includes("booking")) {
     // $eventLog.innerHTML += '\n\n';
     simplepickerb.on('submit', (date, readableDate) => {
       $eventLogb.innerHTML = readableDate;
+      console.log('simplepickerb submit');
     });
 
 
@@ -891,5 +951,6 @@ if (window.location.pathname.includes("booking")) {
     // $eventLog.innerHTML += '\n\n';
     simplepicker.on('submit', (date, readableDate) => {
       $eventLog.innerHTML = readableDate + '\n';
+      console.log('simplepicker submit');
     });
 }
