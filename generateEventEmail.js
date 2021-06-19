@@ -1,13 +1,13 @@
 
 
-function generateEmailContent(body) {
+function generateEventEmail(body) {
 
       const { fname, name, lname, root_phone, email, street_number, city,
       state, postal_code, datetime, date, time } = body;
 
 
   const mailData = {
-    from: 'deanwithersphotography@outlook.com',  // sender address
+    from: 'dwithersphotography@outlook.com',  // sender address
     to: email,
     subject: 'Photoshoot Confirmation!',
     text: 'That was easy!',
@@ -293,4 +293,4 @@ function generateEmailContent(body) {
   return mailData
 }
 
-module.exports = generateEmailContent
+module.exports = generateEventEmail

@@ -5,7 +5,8 @@ const RateLimit = require('express-rate-limit');
 const helmet = require('helmet');
 const morgan = require('morgan');
 const nodemailer = require('nodemailer');
-const generateEmailContent = require('./generateEmailContent.js')
+const generatePhotoshootEmail = require('./generatePhotoshootEmail.js')
+const generateEventEmail = require('./generateEventEmail.js')
 
 const PORT = process.env.PORT || 3000
 
@@ -28,7 +29,7 @@ const transporter = nodemailer.createTransport({
   port: 587,
   host: "smtp.office365.com",
   auth: {
-    user: 'deanwithersphotography@outlook.com',
+    user: 'dwithersphotography@outlook.com',
     pass: process.env.EMAIL_PASS,
   },
   secure: false,
@@ -49,27 +50,35 @@ app.post('/api/schedulerequest', async (req, res) => {
   try {
     //
     console.log('Schedule Reqest:', req.body);
-    res.status(201).json({});
+    // res.status(201).json({});
     //
-    // const mailData = generateEmailContent(req.body)
-    //
-    //
-    // transporter.sendMail(mailData, function (err, info) {
-    //    if(err) {
-    //      console.log(err);
-    //      res.status(418).json({ message: 'Big Failure you suck' });
-    //    } else {
-    //      console.log(info);
-    //      res.status(201).json({ received: true });
-    //    }
-    // });
+    let mailData
+
+     if (req.body.phootshootDateTime) {
+       mailData = generatePhotoshootEmail(req.body)
+     }
+
+     if (req.body.eventDateTime) {
+       mailData = generateEventEmail(req.body)
+     }
+
+
+    transporter.sendMail(mailData, function (err, info) {
+       if(err) {
+         console.log(err);
+         res.status(418).json({ message: 'Big Failure you suck' });
+       } else {
+         console.log(info);
+         res.status(201).json({ received: true });
+       }
+    });
 
 
   } catch (e) {
 
-    console.log('ERROR'. e.message);
+    console.log('ERROR'. e);
 
-    res.status(400).json({ error: e.message });
+    res.status(400).json({ error: e });
 
   }
 })
