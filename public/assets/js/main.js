@@ -888,6 +888,18 @@ $("#event").click(function() {
   $('.event-logb').contents().remove();
 });
 
+$('#homem').on("click", function () {
+  window.location.href = "index.html";
+})
+
+$('#workm').on("click", function () {
+  window.location.href = "work.html";
+})
+
+$('#bookingsm').on("click", function () {
+  window.location.href = "bookings.html";
+})
+
 })(jQuery);
 
 function validateEmail($email) {
