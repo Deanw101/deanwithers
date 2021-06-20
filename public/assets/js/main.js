@@ -893,7 +893,7 @@ $('#homem').on("click", function () {
 })
 
 $('#workm').on("click", function () {
-  window.location.href = "work.html";
+  window.location.href = "portfolio.html";
 })
 
 $('#bookingsm').on("click", function () {
@@ -945,6 +945,7 @@ function getFormDetails() {
  } else {
    values.DateTime = "N/A"
  }
+
   console.log(values);
   return values;
 }

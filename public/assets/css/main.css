@@ -1785,7 +1785,9 @@ box-shadow: 0 20px 50px rgba(0,0,0,0.5)!important;
 
 =====================================================*/
 .bg-work {
-  background: url("../img/port/1.jpg") center no-repeat;
+  /* background: url("../img/port/1.jpg") center no-repeat; */
+  background-color: white;
+  opacity: 0.1;
   z-index: 3;
   position: fixed;
   text-align: center;
@@ -1796,7 +1798,9 @@ box-shadow: 0 20px 50px rgba(0,0,0,0.5)!important;
 }
 
 .bg-work-2 {
-  background: url("../img/port/3.jpg") center no-repeat;
+  /* background: url("../img/port/3.jpg") center no-repeat; */
+  background-color: white;
+  opacity: 0.1;
   z-index: 3;
   position: fixed;
   text-align: center;

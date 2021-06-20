@@ -2,8 +2,8 @@
 
 function generateEventEmail(body) {
 
-      const { fname, name, lname, root_phone, email, street_number, city,
-      state, postal_code, datetime, date, time } = body;
+      const { fname, name, lname, root_phone, email, streetNum, city,
+      state, zip, eventDateTime, date, time } = body;
 
 
   const mailData = {
@@ -23,6 +23,74 @@ function generateEventEmail(body) {
     <title></title>
 
     <style type="text/css">
+
+    .receipt {
+      background-color: #fff;
+      width: 25rem;
+      position: relative;
+      padding: 1rem;
+    }
+
+
+
+    .receipt__header {
+      text-align: center;
+    }
+
+
+
+    .receipt__date {
+      font-size: 0.8rem;
+      color: #666;
+      margin: 0.5rem 0 1rem;
+    }
+
+    .receipt__list {
+      margin: 2rem 0 1rem;
+      padding: 0 1rem;
+    }
+
+    .receipt__list-row {
+      display: flex;
+      justify-content: space-between;
+      margin: 1rem 0;
+      position: relative;
+    }
+
+    .receipt__list-row:after {
+      content: '';
+      display: block;
+      border-bottom: 1px dotted rgba(0,0,0,0.15);
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: -0.25rem;
+      z-index: 1
+    }
+
+    .receipt__item {
+      background-color: #fff;
+      z-index: 2;
+      padding: 0 0.15rem 0 0;
+      color: #1f1f1f;
+    }
+
+    .receipt__cost {
+      margin: 0;
+      padding: 0 0 0 0.15rem;
+      background-color: #fff;
+      z-index: 2;
+      color: #1f1f1f;
+    }
+
+    .receipt__list-row--total {
+      border-top: 1px solid #264653;
+      padding: 1.5rem 0 0;
+      margin: 1.5rem 0 0;
+      font-weight: 700;
+    }
+
+
       a { color: #0000ee; text-decoration: underline; } @media (max-width: 480px) { #u_content_menu_1 .v-padding { padding: 5px 35px !important; } #u_content_menu_2 .v-padding { padding: 5px 38px 5px 32px !important; } #u_content_menu_4 .v-padding { padding: 5px 40px 5px 50px !important; } #u_content_menu_3 .v-padding { padding: 5px 40px 5px 55px !important; } }
       @media only screen and (min-width: 660px) {
         .u-row {
@@ -266,14 +334,43 @@ function generateEventEmail(body) {
                     <div style="color: #000000; line-height: 140%; text-align: left; word-wrap: break-word;">
                       <p style="font-size: 15px; line-height: 140%; text-align: center;"><span style="font-size: 14px; line-height: 16.8px;"><strong><span style="color: #4a4a4a; line-height: 16.8px; font-size: 14px;"><b>Name:</b> ${fname} ${lname}</span></strong></span></p>
                       <br>
-                      <p style="font-size: 15px; line-height: 140%; text-align: center;"><span style="font-size: 14px; line-height: 16.8px;"><strong><span style="color: #4a4a4a; line-height: 16.8px; font-size: 14px;"><b>Phone Number:</b> ${root_phone}</span></strong></span></p>
-                      <br>
                       <p style="font-size: 15px; line-height: 140%; text-align: center;"><span style="font-size: 14px; line-height: 16.8px;"><strong><span style="color: #4a4a4a; line-height: 16.8px; font-size: 14px;"><b>Email:</b> ${email}</span></strong></span></p>
                       <br>
-                      <p style="font-size: 15px; line-height: 140%; text-align: center;"><span style="font-size: 14px; line-height: 16.8px;"><strong><span style="color: #4a4a4a; line-height: 16.8px; font-size: 14px;"><b>Photoshoot location:</b> ${street_number} ${city}, ${state} ${postal_code}</span></strong></span></p>
+                      <p style="font-size: 15px; line-height: 140%; text-align: center;"><span style="font-size: 14px; line-height: 16.8px;"><strong><span style="color: #4a4a4a; line-height: 16.8px; font-size: 14px;"><b>Photoshoot location:</b> ${streetNum} ${city}, ${state} ${zip}</span></strong></span></p>
                         <br>
-                      <p style="font-size: 15px; line-height: 140%; text-align: center;"><span style="font-size: 14px; line-height: 16.8px;"><strong><span style="color: #4a4a4a; line-height: 16.8px; font-size: 14px;"><b>Date & Time:</b> ${date}, ${time}</span></strong></span></p>
+                      <p style="font-size: 15px; line-height: 140%; text-align: center;"><span style="font-size: 14px; line-height: 16.8px;"><strong><span style="color: #4a4a4a; line-height: 16.8px; font-size: 14px;"><b>Date & Time:</b> ${eventDateTime}</span></strong></span></p>
                           <br>
+                          <div class="">
+                          <div class="receipt">
+                            <dl class="receipt__list">
+                              <div class="receipt__list-row">
+                                <dt class="receipt__item">Photoshoot Lengh</dt>
+                                <dd class="receipt__cost" id="photoshootLenghhtml"> </dd>
+                              </div>
+                                <div class="receipt__list-row">
+                                  <dt class="receipt__item">Digital Retouching</dt>
+                                  <dd class="receipt__cost" id="retouchPricehtml"> </dd>
+                                </div>
+                                <div class="receipt__list-row">
+                                  <dt class="receipt__item"># of Digital Photos</dt>
+                                  <dd class="receipt__cost" id="photosPricehtml"> </dd>
+                                </div>
+                                <div class="receipt__list-row">
+                                  <dt class="receipt__item"># of People</dt>
+                                  <dd class="receipt__cost" id="peoplePricehtml"> </dd>
+                                </div>
+                                <div class="receipt__list-row">
+                                  <dt class="receipt__item">Travel Fee</dt>
+                                  <dd class="receipt__cost">$85.00</dd>
+                                </div>
+                                <div class="receipt__list-row receipt__list-row--total">
+                                  <dt class="receipt__item">Total</dt>
+                                  <dd class="receipt__cost" id="photoshootTotalhtml"> </dd>
+
+                                </div>
+                               </dl>
+                             </div>
+                           </div>
                       <p style="font-size: 14px; line-height: 140%; text-align: center;">This email was automatically sent.<span style="color: #000000; font-size: 14px; line-height: 19.6px;"><span style="font-size: 14px; line-height: 19.6px;"></span> </span></p>
                       <p style="font-size: 14px; line-height: 140%; text-align: center;">This inbox is monitored, <b>feel free</b> reply to email with any questions or concerns.</p>
                     </div>
@@ -282,6 +379,8 @@ function generateEventEmail(body) {
                 </tr>
               </tbody>
             </table>
+
+
 
   </body>
 
