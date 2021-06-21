@@ -672,6 +672,8 @@
     	if(animating) return false;
     	animating = true;
 
+      console.log("Click ran");
+
       next_fs = $(this).parent().next();
 
       // console.log(this.id);
@@ -681,6 +683,7 @@
         if (noButton == "no") {
           next_fs = $(this).parent().next().next().next();
           $("#eventloc").attr('id', 'loc');
+          $("#eventlocationfs").attr('id', 'locationfs');
 
         } else {
           // $(this).parent().next().next().next().next().attr('id', 'eventloc');
@@ -691,6 +694,43 @@
 
       if (this.id == "event") {
         next_fs = $(this).parent().next().next();
+         if ($(".event-log").text() == "") {
+           animating = false;
+           $(".errorTwo").text("Please choose a date & time.");
+           console.log("AIDS");
+           return false;
+
+         }
+      }
+
+      if (this.id == "photoshootEdit") {
+        if ($(".event-logb").text() == "") {
+          animating = false;
+          $(".errorThree").text("Please choose a date & time.");
+          console.log("AIDS");
+          return false;
+
+        }
+      }
+
+      if (this.id == "personald") {
+
+        const emailValue = $('#emailf').val();
+
+        if (emailValue == "" || ! validateEmail(emailValue) ) {
+
+
+            console.log('Bad Email Addi');
+            $(".error").text("Please enter valid email.");
+                    // $(".bookedh").text("You're almost there... please enter a valid email address ");
+                    // $(".bookedh").css("color", "red");
+                    // $("#bookedprev").attr('id', 'emailret');
+                    // $("#personald").attr('id', 'personalde');
+                    // $("#emailret").attr("value", "Back to Email");
+            animating = false;
+            return false;
+
+        }
       }
 
       if (this.id == "personalde") {
@@ -705,9 +745,12 @@
 
 
 
+
       if (this.id == "locnext") {
+        console.log("1");
         if ($(this).parent().attr('id') == "eventlocationfs"){
           next_fs = $(this).parent().next().next();
+          console.log("2");
         }
       }
 
@@ -833,15 +876,22 @@ $('#submitForm').on('click', (e) => {
   event.stopPropagation();
   console.log(event);
   const values = getFormDetails();
-  if (! validateEmail(values.email)) {
-    console.log('Bad Email Addi');
-            $(".bookedh").text("You're almost there... please enter a valid email address ");
-            $(".bookedh").css("color", "red");
-            $("#bookedprev").attr('id', 'emailret');
-            $("#personald").attr('id', 'personalde');
-            $("#emailret").attr("value", "Back to Email");
-    return false;
-  }
+  // if (! validateEmail(values.email)) {
+  //   console.log('Bad Email Addi');
+  //           $(".bookedh").text("You're almost there... please enter a valid email address ");
+  //           $(".bookedh").css("color", "red");
+  //           $("#bookedprev").attr('id', 'emailret');
+  //           $("#personald").attr('id', 'personalde');
+  //           $("#emailret").attr("value", "Back to Email");
+  //   return false;
+  // }
+  values.photoshootLengh = (values.shoothrs*200 + values.shootmins*50) || 0;
+  values.retouchPrice = photoshootRetouchType[values.digiret];
+  values.photosPrice = values.digiph*10;
+  values.peoplePrice = values.ppl*20;
+  values.photoshootTotal = values.photoshootLengh + values.retouchPrice + values.photosPrice + values.peoplePrice + 85;
+  values.eventLength = (values.eventhrs*100 + values.eventmins*25) || 0;
+  values.eventTotal = values.eventLength + 185;
   // Post req
   $.post("/api/schedulerequest", values, function(data,status){
     console.log(data, status);
@@ -891,6 +941,12 @@ $("#event").click(function() {
 $('#homem').on("click", function () {
   window.location.href = "index.html";
 })
+
+$('#documentation').on("click", function () {
+  window.location.href = "documentation.html";
+})
+
+
 
 $('#workm').on("click", function () {
   window.location.href = "portfolio.html";

@@ -54,19 +54,21 @@ app.post('/api/schedulerequest', async (req, res) => {
     //
     let mailData
 
-     if (req.body.phootshootDateTime) {
+     if (req.body.photoDateTime) {
+       // console.log('photoshoot generate');
        mailData = generatePhotoshootEmail(req.body)
      }
 
      if (req.body.eventDateTime) {
+       // console.log('event generate');
        mailData = generateEventEmail(req.body)
      }
-
+     console.log(mailData.to);
 
     transporter.sendMail(mailData, function (err, info) {
        if(err) {
          console.log(err);
-         res.status(418).json({ message: 'Big Failure you suck' });
+         res.status(418).json({ message: 'Failure' });
        } else {
          console.log(info);
          res.status(201).json({ received: true });
