@@ -3326,5 +3326,37 @@ details[open] .faq__summary:after {
   input {
     font-size: 16px!important;
   }
+
+  .main-head {
+    margin-bottom: 15vh;
+  }
+
+  .bg-book {
+    display: none;
+  }
+
+  .bg-book-2 {
+    display: none;
+  }
+
+  .bg-book-3 {
+    display: none;
+  }
+
+  .bg-book-4 {
+    display: none;
+  }
+
+  .bg-book-5 {
+    display: none;
+  }
+
+  .bg-book-6 {
+    display: none;
+  }
+
+  .bg-book-7 {
+    display: none;
+  }
 }
 /* // 2883 */
