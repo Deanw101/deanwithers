@@ -7,6 +7,7 @@ const morgan = require('morgan');
 const nodemailer = require('nodemailer');
 const generatePhotoshootEmail = require('./generatePhotoshootEmail.js')
 const generateEventEmail = require('./generateEventEmail.js')
+const generateContactEmail = require('./generateContactEmail.js')
 
 const PORT = process.env.PORT || 3000
 
@@ -63,6 +64,13 @@ app.post('/api/schedulerequest', async (req, res) => {
        // console.log('event generate');
        mailData = generateEventEmail(req.body)
      }
+
+     if (req.body.message) {
+       // console.log('event generate');
+       mailData = generateContactEmail(req.body);
+       console.log("asd");
+     }
+
      console.log(mailData.to);
 
     transporter.sendMail(mailData, function (err, info) {

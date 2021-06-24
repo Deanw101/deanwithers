@@ -903,6 +903,27 @@ $('#submitForm').on('click', (e) => {
   });
 });
 
+$('#submitContact').on('click', (e) => {
+  event.preventDefault();
+  event.stopPropagation();
+  console.log(event);
+  const values = getContactDetails();
+  if (! validateEmail(values.email) || values.email == "") {
+    console.log('Bad Email Addi');
+
+    return false;
+  }
+  // Post req
+  $.post("/api/schedulerequest", values, function(data,status){
+    console.log(data, status);
+    // Clear vals &  reset form
+    // $('#psbook')[0].reset();
+    // $('.event-logb').contents().remove();
+    // $('.event-log').contents().remove();
+    location.reload();
+  });
+});
+
 $("#locnext").click(function() {
   const values = getFormDetails();
   if (values.photoDateTime != undefined) {
@@ -1001,6 +1022,22 @@ function getFormDetails() {
  } else {
    values.DateTime = "N/A"
  }
+
+  console.log(values);
+  return values;
+}
+
+function getContactDetails() {
+  // get all the inputs into an array.
+  var $inputs = $('#contact :input');
+
+  // not sure if you wanted this, but I thought I'd add it.
+  // get an associative array of just the values.
+  var values = {};
+  $inputs.each(function() {
+      values[this.name] = $(this).val();
+  });
+
 
   console.log(values);
   return values;

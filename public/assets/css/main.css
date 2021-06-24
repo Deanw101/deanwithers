@@ -2410,6 +2410,88 @@ PACKAGE BUILDER
     box-shadow: 0 0 0 2px white, 0 0 0 3px #C5C5F1;
 }
 
+#contact {
+    text-align: center;
+    position: relative;
+    margin-top: 30px;
+}
+
+#contact fieldset {
+    background: white;
+    border: 0 none;
+    border-radius: 0px;
+    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+    padding: 20px 30px;
+    box-sizing: border-box;
+    width: 80%;
+    margin: 0 10%;
+
+    position: relative;
+}
+
+
+#contact fieldset:not(:first-of-type) {
+    display: none;
+}
+
+/*inputs*/
+#contact input, #contact textarea {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 0px;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    color: #2C3E50;
+    font-size: 13px;
+}
+
+#contact input:focus, #contact textarea:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: 1px solid #2a9d8f;
+    outline-width: 0;
+    transition: All 0.5s ease-in;
+    -webkit-transition: All 0.5s ease-in;
+    -moz-transition: All 0.5s ease-in;
+    -o-transition: All 0.5s ease-in;
+}
+
+/*buttons*/
+#contact .action-button {
+    width: 100px;
+    background: #264653;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 25px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 5px;
+}
+
+#contact .action-button:hover, #contact .action-button:focus {
+    box-shadow: 0 0 0 2px white, 0 0 0 3px #264653;
+}
+
+#contact .action-button-previous {
+    width: 100px;
+    background: #C5C5F1;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 25px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 5px;
+}
+
+#contact .action-button-previous:hover, #contact .action-button-previous:focus {
+    box-shadow: 0 0 0 2px white, 0 0 0 3px #C5C5F1;
+}
+
 /*headings*/
 .fs-title {
     font-size: 18px;
@@ -2994,7 +3076,7 @@ body {
 
 * { box-sizing: border-box; }
 
-html {
+ html {
   /* font-size: 10px; */
 }
 
@@ -3012,7 +3094,7 @@ html {
 
 .faq {
     background-color: #fff;
-    border-radius: 25px;
+    border-radius: 15px;
     padding: 50px 25px;
     margin: 150px 5% 5% 5%;
     min-width: 320px;
@@ -3036,7 +3118,7 @@ html {
 
 .faq__heading {
     color: var(--blue-dark);
-    font-size: 3.2rem;
+    font-size: 1.5rem;
     font-weight: 700;
     text-align: center;
 }
@@ -3044,7 +3126,7 @@ html {
 .faq__detail {
     border-bottom: 1px solid hsl(240, 5%, 91%);
     margin: 20px 0 0 0;
-    padding: 5px 0 20px 0;
+    padding: 5px 0 10px 0;
 }
 
 .faq__summary:hover,
@@ -3100,6 +3182,7 @@ details[open] .faq__summary:after {
     text-align: left;
     top: 0;
     width: 90%;
+    font-size: 14px;
 }
 
 .faq__question {
@@ -3107,6 +3190,7 @@ details[open] .faq__summary:after {
     margin: 5px 0;
     text-align: left;
     width: 90%;
+      font-size: 14px;
 }
 
 .faq__summary {
@@ -3125,6 +3209,7 @@ details[open] .faq__summary:after {
     font-size: var(--base-font-size);
     line-height: 1.6;
     margin: 10px 0 0 0;
+    font-size: 11px;
 }
 
 .hidden-lg { display: block; }
@@ -3233,5 +3318,13 @@ details[open] .faq__summary:after {
 
 .features {
   background-color:black
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) and (max-device-width:1024px) {
+  select,
+  textarea,
+  input {
+    font-size: 16px!important;
+  }
 }
 /* // 2883 */
