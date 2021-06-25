@@ -3327,10 +3327,7 @@ details[open] .faq__summary:after {
     font-size: 16px!important;
   }
 
-   input[type="text"],  input[type="email"],  input[type="phone"],  input[type="number"],  input[type="tel"], -wide input[type="text"], -wide input[type="email"], -wide input[type="phone"], -wide input[type="number"], -wide input[type="tel"] {
 
-        width: 180px !important;
-}
 
   .menui {
       padding-top: 65px;
