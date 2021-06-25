@@ -3327,7 +3327,7 @@ details[open] .faq__summary:after {
     font-size: 16px!important;
   }
 
-  input.btn {
+  input {
     -webkit-user-select: initial;
     -khtml-user-select: initial;
     -moz-user-select: initial;
