@@ -3320,6 +3320,11 @@ details[open] .faq__summary:after {
   background-color:black
 }
 
+@media only screen and (max-device-width:375px) and (max-device-height:667px) {
+  .footer {
+    margin-top:55%;
+  }
+}
 @media screen and (-webkit-min-device-pixel-ratio:0) and (max-device-width:1024px) {
   select,
   textarea,
@@ -3334,6 +3339,10 @@ details[open] .faq__summary:after {
     -ms-user-select: initial;
     user-select: initial;
   }
+
+  .cuspack {
+      margin-top: 30%;
+    }
 
   .menui {
       padding-top: 65px;
