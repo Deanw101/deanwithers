@@ -1802,6 +1802,18 @@ box-shadow: 0 20px 50px rgba(0,0,0,0.5)!important;
   top: 20vh;
 }
 
+.bg-about {
+  background: url("../img/home.jpg") center no-repeat;
+
+  z-index: 3;
+  position: fixed;
+  text-align: center;
+  left: 50%;
+  height: 90vh;
+  width: 40vw;
+  top: 20vh;
+}
+
 .bg-work-2 {
   /* background: url("../img/port/3.jpg") center no-repeat; */
   background-color: white;
@@ -3131,7 +3143,7 @@ body {
 
 .faq__summary:hover,
 .faq__summary:active {
-    color: var(--orange);
+    color: #264653;
     cursor: pointer;
 }
 
@@ -3162,6 +3174,10 @@ body {
     background-position: right center;
     text-align: right;
     padding-bottom: 20px;
+  }
+
+  .aboutme {
+
   }
 
 details[open] .faq__summary:after {
@@ -3199,7 +3215,7 @@ details[open] .faq__summary:after {
 }
 
 .faq__summary:focus {
-    color: var(--orange);
+    color: #1f5065;
     font-weight: bold;
     outline: none;
 }
@@ -3224,7 +3240,7 @@ details[open] .faq__summary:after {
         justify-content: space-between;
         min-width: 450px;
         padding: 0;
-        margin: 0;
+        margin: 0px 0px 0px 0px;
     }
 
     .faq__logo__holder {
@@ -3320,12 +3336,40 @@ details[open] .faq__summary:after {
   background-color:black
 }
 
+.sectitle::before {
+  width: 0px!important;
+height: 0px!important;
+}
+
 @media only screen and (max-device-width:375px) and (max-device-height:667px) {
   .footer {
     margin-top:55%;
   }
 }
+
+@media only screen and (min-device-width:1023px) {
+.menui {
+    padding-top: 65px;
+        margin-top:0px;
+}
+
+.faq {
+  margin: 0;
+}
+
+.sectitle {
+  margin-top:35px;
+}
+}
+
 @media screen and (-webkit-min-device-pixel-ratio:0) and (max-device-width:1024px) {
+
+  .faqtitle {
+    margin: 45px 0 0 0;
+  }
+  .faqrow {
+    margin-top:-75px;
+  }
   select,
   textarea,
   input {
@@ -3344,10 +3388,6 @@ details[open] .faq__summary:after {
       margin-top: 30%;
     }
 
-  .menui {
-      padding-top: 65px;
-          margin-top:0px;
-  }
 
 .abt-text {
   border-radius: 0px 0px 0px;

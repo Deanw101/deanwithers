@@ -7,6 +7,8 @@
     // Preloader
     //--------------------------------------------------
     $(window).on('load', function () {
+      $('bookings').css('cursor', 'none');
+      
         $('.preloader').fadeOut('slow');
         RevealLoad();
         startAnim();
@@ -910,12 +912,19 @@ $('#submitContact').on('click', (e) => {
   const values = getContactDetails();
   if (! validateEmail(values.email) || values.email == "") {
     console.log('Bad Email Addi');
-
+    $(".error").text("Please enter valid email.");
     return false;
   }
+
+  if ($('#message').text() == "") {
+      $(".error").text("Please enter message.");
+    return false;
+  }
+
   // Post req
   $.post("/api/schedulerequest", values, function(data,status){
     console.log(data, status);
+
     // Clear vals &  reset form
     // $('#psbook')[0].reset();
     // $('.event-logb').contents().remove();
@@ -976,6 +985,38 @@ $('#workm').on("click", function () {
 $('#bookingsm').on("click", function () {
   window.location.href = "bookings.html";
 })
+
+$('#helpm').on("click", function () {
+  window.location.href = "help.html";
+})
+
+$('#copye').on("click", function () {
+  const str = "dwithersphotography@gmail.com"
+  const el = document.createElement('textarea')
+  el.value = str
+  el.setAttribute('readonly', '')
+  el.style.position = 'absolute'
+  el.style.left = '-9999px'
+  document.body.appendChild(el)
+  el.select()
+  document.execCommand('copy')
+  document.body.removeChild(el)
+})
+
+$('#copyp').on("click", function () {
+  const str = "9706409527"
+  const el = document.createElement('textarea')
+  el.value = str
+  el.setAttribute('readonly', '')
+  el.style.position = 'absolute'
+  el.style.left = '-9999px'
+  document.body.appendChild(el)
+  el.select()
+  document.execCommand('copy')
+  document.body.removeChild(el)
+})
+
+
 
 })(jQuery);
 
