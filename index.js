@@ -50,7 +50,7 @@ app.use(express.json({ limit: '1000kb' }));
 app.post('/api/schedulerequest', async (req, res) => {
   try {
     //
-    console.log('Schedule Reqest:', req.body);
+    // console.log('Schedule Reqest:', req.body);
     // res.status(201).json({});
     //
     let mailData
@@ -68,10 +68,10 @@ app.post('/api/schedulerequest', async (req, res) => {
      if (req.body.message) {
        // console.log('event generate');
        mailData = generateContactEmail(req.body);
-       console.log("asd");
+       // console.log("asd");
      }
-
-     console.log(mailData.to);
+     //
+     // console.log(mailData.to);
 
     transporter.sendMail(mailData, function (err, info) {
        if(err) {

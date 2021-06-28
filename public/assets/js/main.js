@@ -8,7 +8,7 @@
     //--------------------------------------------------
     $(window).on('load', function () {
       $('bookings').css('cursor', 'none');
-      
+
         $('.preloader').fadeOut('slow');
         RevealLoad();
         startAnim();
@@ -674,7 +674,7 @@
     	if(animating) return false;
     	animating = true;
 
-      console.log("Click ran");
+      // console.log("Click ran");
 
       next_fs = $(this).parent().next();
 
@@ -699,7 +699,7 @@
          if ($(".event-log").text() == "") {
            animating = false;
            $(".errorTwo").text("Please choose a date & time.");
-           console.log("AIDS");
+           // console.log("AIDS");
            return false;
 
          }
@@ -709,7 +709,7 @@
         if ($(".event-logb").text() == "") {
           animating = false;
           $(".errorThree").text("Please choose a date & time.");
-          console.log("AIDS");
+          // console.log("AIDS");
           return false;
 
         }
@@ -722,7 +722,7 @@
         if (emailValue == "" || ! validateEmail(emailValue) ) {
 
 
-            console.log('Bad Email Addi');
+            // console.log('Bad Email Addi');
             $(".error").text("Please enter valid email.");
                     // $(".bookedh").text("You're almost there... please enter a valid email address ");
                     // $(".bookedh").css("color", "red");
@@ -749,10 +749,10 @@
 
 
       if (this.id == "locnext") {
-        console.log("1");
+        // console.log("1");
         if ($(this).parent().attr('id') == "eventlocationfs"){
           next_fs = $(this).parent().next().next();
-          console.log("2");
+          // console.log("2");
         }
       }
 
@@ -876,7 +876,7 @@
 $('#submitForm').on('click', (e) => {
   event.preventDefault();
   event.stopPropagation();
-  console.log(event);
+  // console.log(event);
   const values = getFormDetails();
   // if (! validateEmail(values.email)) {
   //   console.log('Bad Email Addi');
@@ -908,10 +908,10 @@ $('#submitForm').on('click', (e) => {
 $('#submitContact').on('click', (e) => {
   event.preventDefault();
   event.stopPropagation();
-  console.log(event);
+  // console.log(event);
   const values = getContactDetails();
   if (! validateEmail(values.email) || values.email == "") {
-    console.log('Bad Email Addi');
+    // console.log('Bad Email Addi');
     $(".error").text("Please enter valid email.");
     return false;
   }
@@ -941,11 +941,11 @@ $("#locnext").click(function() {
     const photosPrice = values.digiph*10;
     const peoplePrice = values.ppl*20;
     const photoshootTotal = photoshootLengh + retouchPrice + photosPrice + peoplePrice + 85;
-    console.log(photoshootLengh);
-    console.log(retouchPrice);
-    console.log(photosPrice);
-    console.log(peoplePrice);
-    console.log(photoshootTotal);
+    // console.log(photoshootLengh);
+    // console.log(retouchPrice);
+    // console.log(photosPrice);
+    // console.log(peoplePrice);
+    // console.log(photoshootTotal);
     $("#photoshootLenghhtml").text('$' + photoshootLengh + '.00');
     $("#retouchPricehtml").text('$' + retouchPrice + '.00');
     $("#photosPricehtml").text('$' + photosPrice + '.00');
@@ -1044,7 +1044,7 @@ function getFormDetails() {
       values[this.name] = $(this).val();
   });
   let $selectFields = $('select');
-  console.log($selectFields);
+  // console.log($selectFields);
 
   for (var i = 0; i < $selectFields.length; i++) {
     let field = $selectFields[i]
@@ -1054,8 +1054,8 @@ function getFormDetails() {
   const $eventLog = document.querySelector('.event-log');
   const $eventLogb = document.querySelector('.event-logb');
 
-  console.log($eventLog);
-  console.log($eventLogb);
+  // console.log($eventLog);
+  // console.log($eventLogb);
  if ($eventLog.innerHTML != '') {
    values.eventDateTime = $eventLog.innerHTML
  } else if ($eventLogb != '') {
@@ -1064,7 +1064,7 @@ function getFormDetails() {
    values.DateTime = "N/A"
  }
 
-  console.log(values);
+  // console.log(values);
   return values;
 }
 
@@ -1079,8 +1079,8 @@ function getContactDetails() {
       values[this.name] = $(this).val();
   });
 
-
-  console.log(values);
+  //
+  // console.log(values);
   return values;
 }
 
@@ -1105,7 +1105,7 @@ if (window.location.pathname.includes("booking")) {
     // $eventLog.innerHTML += '\n\n';
     simplepickerb.on('submit', (date, readableDate) => {
       $eventLogb.innerHTML = readableDate;
-      console.log('simplepickerb submit');
+      // console.log('simplepickerb submit');
     });
 
 
@@ -1126,6 +1126,6 @@ if (window.location.pathname.includes("booking")) {
     // $eventLog.innerHTML += '\n\n';
     simplepicker.on('submit', (date, readableDate) => {
       $eventLog.innerHTML = readableDate + '\n';
-      console.log('simplepicker submit');
+      // console.log('simplepicker submit');
     });
 }
